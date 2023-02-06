@@ -14,7 +14,7 @@ namespace MeltdownPrototype
 		private MMF_Player onReceiveDamageFeedbacks;
 
 		[SerializeField]
-		private MMF_Player onDeathFeedbacks;p
+		private MMF_Player onDeathFeedbacks;
 
 		[SerializeField]
 		private int startingHealth;

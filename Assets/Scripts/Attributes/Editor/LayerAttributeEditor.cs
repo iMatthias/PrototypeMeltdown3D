@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace MeltdownPrototype
 {
+	/// <summary>
+	/// https://answers.unity.com/questions/609385/type-for-layer-selection.htmlC
+	/// </summary>
 	[CustomPropertyDrawer(typeof(LayerAttribute))]
 	public class LayerAttributeEditor : PropertyDrawer
 	{

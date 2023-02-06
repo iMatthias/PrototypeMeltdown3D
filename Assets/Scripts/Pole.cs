@@ -4,7 +4,7 @@ using UnityEngine.Assertions;
 
 namespace MeltdownPrototype
 {
-	public class Pole : MonoBehaviour
+    public class Pole : MonoBehaviour
 	{
 		public int Damage { get => this.damage; }
 
