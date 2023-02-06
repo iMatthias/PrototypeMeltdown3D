@@ -16,6 +16,9 @@ namespace MeltdownPrototype
 		[SerializeField]
 		private CharacterSelectionViewController characterSelectionViewController;
 
+		[SerializeField]
+		private HPViewController hpViewController;
+
 		[Header("Runtime Instances")]
 
 		[SerializeField, ReadOnly]
@@ -33,6 +36,7 @@ namespace MeltdownPrototype
 		public void StartGame()
 		{
 			this.mainMenuViewController.ClosePanel();
+			CleanUpGame();
 			StartCoroutine(StartSpawnCoroutine());
 		}
 
@@ -47,6 +51,9 @@ namespace MeltdownPrototype
 			yield return new WaitForSeconds(this.data.SpawnEffectPrefabs[this.selectedSpawnEffectIndex].Float);
 
 			this.spawnedPlayerCharacter = Instantiate(this.data.CharacterPrefabs[selectedCharacterIndex], this.data.PlayerStartPosition);
+
+			this.hpViewController.ConnectCharacter(this.spawnedPlayerCharacter);
+			this.mainMenuViewController.ConnectCharacter(this.spawnedPlayerCharacter);
 
 			yield return new WaitForSeconds(5);
 			Destroy(this.spawnEffect.gameObject);

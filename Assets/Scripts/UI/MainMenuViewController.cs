@@ -16,6 +16,9 @@ namespace MeltdownPrototype
 		private CharacterSelectionViewController characterSelectionViewController;
 
 		[SerializeField]
+		private HPViewController hpViewController;
+
+		[SerializeField]
 		private Button startGameButton;
 
 		[SerializeField]
@@ -27,6 +30,11 @@ namespace MeltdownPrototype
 		[SerializeField]
 		private KeyCode mainMenuKey = KeyCode.Escape;
 
+		[Header("Debug")]
+
+		[SerializeField]
+		private bool startGameOnAwakeImmediately;
+
 		private void Awake()
 		{
 			this.startGameButton.onClick.AddListener(this.gameStartSystem.StartGame);
@@ -36,6 +44,11 @@ namespace MeltdownPrototype
 		private void Start()
 		{
 			OpenFirstMainMenu();
+
+			if (this.startGameOnAwakeImmediately)
+			{
+				this.startGameButton.onClick.Invoke();
+			}
 		}
 
 		private void Update()
@@ -51,6 +64,8 @@ namespace MeltdownPrototype
 			this.menuCanvasGroup.gameObject.SetActive(true);
 			this.firstMenuPanel.SetActive(true);
 			this.characterSelectionViewController.gameObject.SetActive(false);
+
+			this.hpViewController.gameObject.SetActive(false);
 		}
 
 		private void OpenCharacterSelectionMenuButton()
@@ -62,6 +77,13 @@ namespace MeltdownPrototype
 		public void ClosePanel()
 		{
 			this.menuCanvasGroup.gameObject.SetActive(false);
+			this.hpViewController.gameObject.SetActive(true);
+		}
+
+		public void ConnectCharacter(Animator spawnedPlayerCharacter)
+		{
+			PlayerCharacter playerCharacter = spawnedPlayerCharacter.GetComponent<PlayerCharacter>();
+			playerCharacter.OnDeathEvent += OpenFirstMainMenu;
 		}
 	}
 }

@@ -11,11 +11,12 @@ namespace MeltdownPrototype
 		public const string LayerNameWall = "World/Wall";
 	}
 
-	public delegate void EmptyDelegate(Pole pole);
+	public delegate void EmptyDelegate();
+	public delegate void PoleDelegate(Pole pole);
 
 	public class PoleCollisionDetector : MonoBehaviour
 	{
-		public event EmptyDelegate OnCollisionEnterRotatingPole;
+		public event PoleDelegate OnCollisionEnterRotatingPole;
 
 		[SerializeField, Layer]
 		private int wallLayer;

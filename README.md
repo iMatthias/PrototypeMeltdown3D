@@ -1,4 +1,12 @@
-﻿### Assets:
+﻿### Features
+
+- Character Selection: Uses different Prefabs (and its variants) with different starting Health amount
+- Simple Character Movement
+- Feel: Jump, Spawn, Death Effects are handled by Asset "Feel"
+- Health System: Character Preview Image, Health Icons are updated when character receives damages.
+- Damage System: Pole has Damage attribute. Currently set to 1 and can be changed from the inspector. It was going to have multiple values for different stages but only 1 stage was implemented in this version.
+
+### Assets:
 
 - Feel
 

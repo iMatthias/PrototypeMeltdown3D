@@ -13,6 +13,9 @@ namespace MeltdownPrototype
 		private MainMenuViewController mainMenuViewController;
 
 		[SerializeField]
+		private HPViewController hpViewController;
+
+		[SerializeField]
 		private Color selectedColor;
 
 		[SerializeField]
@@ -39,9 +42,10 @@ namespace MeltdownPrototype
 				button.OnClickButtonEvent += OnClickCharacterPreviewButton;
 			}
 
-			this.previewButtons[0].OnClickButton();
-
 			this.confirmButton.onClick.AddListener(OnClickConfirmButton);
+
+			// Initialize default settings
+			this.previewButtons[0].OnClickButton();
 		}
 
 		private void OnClickCharacterPreviewButton(int index)
@@ -50,6 +54,11 @@ namespace MeltdownPrototype
 			{
 				Color newColor = button.Index == index ? this.selectedColor : this.defaultColor;
 				button.GetComponent<Image>().color = newColor;
+
+				if (button.Index == index)
+				{
+					this.hpViewController.SetCharacterPreviewImage(button.PreviewSprite);
+				}
 			}
 
 			this.selectedCharacterIndex = index;

@@ -23,9 +23,14 @@ namespace MeltdownPrototype
 		[SerializeField]
 		private ForceMode jumpForceMode = ForceMode.VelocityChange;
 
+		// private void Update()
+		// {
+
+		// }
+
 		private void FixedUpdate()
 		{
-			this.playerCharacter.velocity *= 0.6f;
+			// this.playerCharacter.velocity *= 0.6f;
 
 			float forwardMultiplier = 0;
 			float rightMultiplier = 0;
@@ -53,10 +58,10 @@ namespace MeltdownPrototype
 			Vector3 appliedSpeed = this.speed * Time.deltaTime;
 			appliedSpeed.Scale(new Vector3(rightMultiplier, 0, forwardMultiplier));
 			this.playerCharacter.MovePosition(this.playerCharacter.transform.position + appliedSpeed);
-			this.playerCharacter.velocity *= 0;
-			this.playerCharacter.angularVelocity *= 0;
+			this.playerCharacter.velocity = Vector3.zero;
+			this.playerCharacter.angularVelocity = Vector3.zero;
 
-			if (Input.GetKeyDown(this.Jump))
+			if (Input.GetKey(this.Jump))
 			{
 				this.jumpFeedbacks.PlayFeedbacks();
 			}

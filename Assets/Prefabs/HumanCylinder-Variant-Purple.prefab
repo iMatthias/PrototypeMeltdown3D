@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af5576d8384774234a6d9d656b83e08a, type: 2}
+    - target: {fileID: 86393322503185189, guid: 9806c724e45844859b6f7e837ec592dd, type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 86393322503185189, guid: 9806c724e45844859b6f7e837ec592dd, type: 3}
+      propertyPath: startingHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 86393322503185199, guid: 9806c724e45844859b6f7e837ec592dd, type: 3}
       propertyPath: m_Name
       value: HumanCylinder-Variant-Purple
